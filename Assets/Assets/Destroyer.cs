@@ -37,6 +37,6 @@ public class Destroyer : MonoBehaviour
             vidaPared-=1;
             Destroy(col.gameObject);
         }
-        
+
     }
 }
