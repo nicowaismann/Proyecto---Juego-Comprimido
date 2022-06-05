@@ -61,7 +61,7 @@ public class Movimiento : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Obstaculo1")
+        if (col.gameObject.name == "Obstaculo1" || col.gameObject.name == "Pared")
         {
 
             transform.position = new Vector3(11, 0.5f, 0.2f);
