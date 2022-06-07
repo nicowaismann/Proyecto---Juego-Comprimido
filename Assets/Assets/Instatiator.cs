@@ -21,11 +21,14 @@ public class Instatiator : MonoBehaviour
     {
         if (pelota.transform.position.x > 5 && pelota.transform.position.x < 5.1f)
         {
+            GameObject cloncubo;
             for (int i = 0; i < 3; i++)
             {
-                Instantiate(CubePrefab);
-                CubePrefab.transform.position = CubeSpawnPoint.transform.position;
-                CubePrefab.GetComponent<Rigidbody>().AddForce(Vector3.forward * ShootForce, ForceMode.Impulse);
+                
+                cloncubo = Instantiate(CubePrefab);
+                cloncubo.transform.position = CubeSpawnPoint.transform.position;
+                cloncubo.GetComponent<Rigidbody>().AddForce(Vector3.left * ShootForce, ForceMode.Impulse);
+                Destroy(cloncubo, 5);
 
             }
         }

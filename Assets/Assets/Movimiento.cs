@@ -8,12 +8,16 @@ public class Movimiento : MonoBehaviour
     Rigidbody rb;
     public float JumpForce;
     bool HasJump;
+    public AudioClip winSound;
+    public AudioClip jumpSound;
+    AudioSource fuenteAudio;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         HasJump = true;
+        fuenteAudio = GetComponent<AudioSource>();
     }
 
    
@@ -48,6 +52,8 @@ public class Movimiento : MonoBehaviour
         {
             rb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             HasJump = false;
+            fuenteAudio.clip = jumpSound;
+            fuenteAudio.Play();
         }
 
         if(transform.position.y < -5)
@@ -61,10 +67,16 @@ public class Movimiento : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "Obstaculo1" || col.gameObject.name == "Pared")
+        if (col.gameObject.name == "Obstaculo1" || col.gameObject.name == "Pared"||col.gameObject.tag=="Cubito")
         {
 
             transform.position = new Vector3(11, 0.5f, 0.2f);
+        }
+
+        if(col.gameObject.name == "ParedGanadora")
+        {
+            fuenteAudio.clip = winSound;
+            fuenteAudio.Play();
         }
 
         if (col.gameObject.name == "Plane")
