@@ -7,7 +7,7 @@ public class TimeManager : MonoBehaviour
 {
     public Text txt_customTime;
     float customTime;
-    bool isCounting;
+    public bool isCounting;
 
     // Start is called before the first frame update
     void Start()

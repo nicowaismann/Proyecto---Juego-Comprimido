@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movimiento : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Movimiento : MonoBehaviour
     public AudioClip winSound;
     public AudioClip jumpSound;
     AudioSource fuenteAudio;
+    public GameObject TimeManager;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +22,9 @@ public class Movimiento : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         HasJump = true;
         fuenteAudio = GetComponent<AudioSource>();
+       
+       
+        
     }
 
    
@@ -77,6 +84,10 @@ public class Movimiento : MonoBehaviour
         {
             fuenteAudio.clip = winSound;
             fuenteAudio.Play();
+            TimeManager.GetComponent<TimeManager>().isCounting = false;
+
+            
+
         }
 
         if (col.gameObject.name == "Plane")
