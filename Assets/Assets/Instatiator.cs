@@ -27,7 +27,7 @@ public class Instatiator : MonoBehaviour
                 
                 cloncubo = Instantiate(CubePrefab);
                 cloncubo.transform.position = CubeSpawnPoint.transform.position;
-                cloncubo.GetComponent<Rigidbody>().AddForce(Vector3.left * ShootForce, ForceMode.Impulse);
+                cloncubo.GetComponent<Rigidbody>().AddForce(Vector3.right * ShootForce, ForceMode.Impulse);
                 Destroy(cloncubo, 5);
 
             }
